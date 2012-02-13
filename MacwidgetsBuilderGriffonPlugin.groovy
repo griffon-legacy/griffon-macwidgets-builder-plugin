@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2010 the original author or authors.
+ * Copyright 2009-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -18,19 +18,45 @@
  * @author Andres Almiray
  */
 class MacwidgetsBuilderGriffonPlugin {
-    def version = '0.5.1'
-    def dependsOn = [:]
-    def toolkits = ['swing']
-    def griffonVersion = '0.9.3 > *'
-    def license = 'Apache Software License 2.0'
+    String version = '0.6'
+    // the version or versions of Griffon the plugin is designed for
+    String griffonVersion = '0.9.5 > *'
+    // the other plugins this plugin depends on
+    Map dependsOn = [:]
+    // resources that are included in plugin packaging
+    List pluginIncludes = []
+    // the plugin license
+    String license = 'Apache Software License 2.0'
+    // Toolkit compatibility. No value means compatible with all
+    // Valid values are: swing, javafx, swt, pivot, gtk
+    List toolkits = ['swing']
+    // Platform compatibility. No value means compatible with all
+    // Valid values are:
+    // linux, linux64, windows, windows64, macosx, macosx64, solaris
+    List platforms = []
+    // URL where documentation can be found
+    String documentation = ''
+    // URL where source can be found
+    String source = 'https://github.com/griffon/griffon-macwidgets-builder-plugin'
 
-    def author = 'Andres Almiray'
-    def authorEmail = 'aalmiray@users.sourceforge.net'
-    def title = 'MacWidgetsBuilder Plugin'
-    def description = '''
-Brings the MacWidgetsBuilder libraries into a Griffon Build
+    List authors = [
+        [
+            name: 'Andres Almiray',
+            email: 'aalmiray@yahoo.com'
+        ]
+    ]
+    String title = 'MacWidgetsBuilder Plugin'
+    // accepts Markdown syntax. See http://daringfireball.net/projects/markdown/ for details
+    String description = '''
+Brings the [MacwidgetsBuilder][1] libraries (based on [Macwidgets 0.9.5][2]) into your Griffon application.
+
+Usage
+----
+Macwidgets nodes are added by default to the root builder without a prefix, which means you can call them directly.
+Refer to the [builder's][1] page to known what nodes are available.
+
+
+[1]: http://griffon.codehaus.org/MacwidgetsBuilder
+[2]: http://code.google.com/p/macwidgets
 '''
-
-    // URL to the plugin's documentation
-    def documentation = 'http://griffon.codehaus.org/MacWidgetsBuilder+Plugin'
 }
